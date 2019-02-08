@@ -10,12 +10,28 @@ export default class Ball {
 		// Reset that 'lil fella'
 		this.reset();
 	}
+
+	wallCollision() {
+
+	}
+
+	paddleCollision() {
+
+	}
+
 	reset() {
-		
+
 		// setting X co-ordinate
 		this.x = this.boardWidth / 2;
 		// setting Y co-ordinate
 		this.y = this.boardHeight / 2;
+	}
+
+	goal(player) {
+		// increment score 
+
+		// resets ball on goal
+		this.reset();
 	}
 
 	render(svg) {
@@ -32,5 +48,11 @@ export default class Ball {
 
 		// append to SVG in
 		svg.appendChild(ball);
+
+		// Detect goal code here 
+		// left goal variable
+		// right goal variable
+		// a conditional to check if left or right goal 
+
 	}
 }
