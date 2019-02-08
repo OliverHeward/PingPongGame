@@ -1,5 +1,7 @@
 import { SVG_NS } from '../settings';
-import Board from './board';
+import { KEYS } from '../settings';
+import Paddle from './Paddle';
+import Board from './Board';
 
 export default class Game {
     constructor(element, width, height) {
@@ -12,11 +14,42 @@ export default class Game {
         // Creates a board object and set width and height to game width and height
 
         this.board = new Board(this.width, this.height);
+
+        this.paddleWidth = 8;
+        this.paddleHeight = 56;
+        this.boardGap = 10;
+
+        this.player1 = new Paddle(
+            // Game/Board height
+            this.height,
+            // paddle height/width
+            this.paddleWidth,
+            this.paddleHeight,
+            // gap beween paddle and board side
+            this.boardGap,
+            ((this.height - this.paddleHeight) / 2),
+            KEYS.a,
+            KEYS.z
+        )
+
+        this.player2 = new Paddle(
+            // Game/Board height
+            this.height,
+            // paddle height/width
+            this.paddleWidth,
+            this.paddleHeight,
+            // gap beween paddle and board side
+            this.boardGap,
+            ((this.height - this.paddleHeight) / 2),
+            KEYS.up,
+            KEYS.down
+        )
     }
 
     render() {
         // create svg element
         this.gameElement.innerHTML = '';
+
 
         let svg = document.createElementNS(SVG_NS, 'svg');
 
@@ -29,7 +62,7 @@ export default class Game {
 
         //render the game components
         this.board.render(svg);
-        this.board.render(svg);
+        this.player1.render(svg);
 
     }
 }
