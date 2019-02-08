@@ -63,6 +63,7 @@ export default class Game {
         //render the game components
         this.board.render(svg);
         this.player1.render(svg);
+        this.player2.render(svg);
 
     }
 }
