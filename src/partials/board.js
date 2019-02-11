@@ -16,11 +16,11 @@ export default class Board {
         let line = document.createElementNS(SVG_NS, 'line');
 
         // sett x coordinate which is half of the board
-        line.setAttributeNS(null, 'x1', (this.width/2));
+        line.setAttributeNS(null, 'x1', (this.width / 2));
         // Set y coordinate to the top of the board
         line.setAttributeNS(null, 'y1', 0)
         // set the x coordinate which is half of the board
-        line.setAttributeNS(null, 'x2', (this.width/2));
+        line.setAttributeNS(null, 'x2', (this.width / 2));
         // set the y coordinate which is the total height of the board
         line.setAttributeNS(null, 'y2', this.height);
 
