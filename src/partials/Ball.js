@@ -32,7 +32,7 @@ export default class Ball {
         if (this.vx > 0) {
             // detect player2 paddle collision
             let paddle = player2.coordinates(player2.x, player2.y, player2.width, player2.height);
-            let [leftX, rightX, topY, bottomY] = paddle;
+            let [leftX, rightX, topY, bottomY] = paddle; 
             if (
                 (this.x + this.radius >= leftX) // right edge of the ball is >= left edge of the paddle
                 &&
@@ -81,9 +81,7 @@ export default class Ball {
     goal(player) {
         player.score++;
         this.reset();
-        console.log(player.score);
         // resets ball on goal
-        this.reset();
     }
 
     render(svg, player1, player2) {
