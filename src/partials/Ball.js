@@ -15,8 +15,10 @@ export default class Ball {
 
     wallCollision() {
 
+        // 
         let hitLeft = this.x - this.radius <= 0;
         let hitRight = this.x + this.radius >= this.boardWidth;
+        console.log(hitRight);
         let hitTop = this.y - this.radius <= 0;
         let hitBottom = this.y + this.radius >= this.boardHeight;
 
@@ -32,7 +34,7 @@ export default class Ball {
         if (this.vx > 0) {
             // detect player2 paddle collision
             let paddle = player2.coordinates(player2.x, player2.y, player2.width, player2.height);
-            let [leftX, rightX, topY, bottomY] = paddle; 
+            let [leftX, rightX, topY, bottomY] = paddle;
             if (
                 (this.x + this.radius >= leftX) // right edge of the ball is >= left edge of the paddle
                 &&

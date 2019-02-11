@@ -54,7 +54,7 @@ export default class Game {
 
         // Event listener for keydown detection on 'Spacebar';
         document.addEventListener('keydown', event => {
-            switch (event.key) {
+            switch(event.key) {
                 case KEYS.spaceBar:
                     this.pause = !this.pause;
                     break;
@@ -78,10 +78,12 @@ export default class Game {
     }
 
     render() {
+        if(this.pause) {
+            return;
+        }
 
         // create svg element
         this.gameElement.innerHTML = '';
-
 
         let svg = document.createElementNS(SVG_NS, 'svg');
 
@@ -102,9 +104,7 @@ export default class Game {
 
         // pause the game
         // ...slightly broken because it still listens for the paddles' keydown
-        if (this.pause) {
-            return;
-        }
+
 
     }
 }
