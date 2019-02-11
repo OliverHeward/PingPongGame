@@ -15,12 +15,10 @@ export default class Ball {
 
     wallCollision() {
 
-        // 
-        let hitLeft = this.x - this.radius <= 0;
-        let hitRight = this.x + this.radius >= this.boardWidth;
-        console.log(hitRight);
-        let hitTop = this.y - this.radius <= 0;
-        let hitBottom = this.y + this.radius >= this.boardHeight;
+        const hitLeft = this.x - this.radius <= 0;
+        const hitRight = this.x + this.radius >= this.boardWidth;
+        const hitTop = this.y - this.radius <= 0;
+        const hitBottom = this.y + this.radius >= this.boardHeight;
 
         if (hitLeft || hitRight) {
             this.vx = -this.vx;
@@ -43,6 +41,7 @@ export default class Ball {
                 (this.y >= topY && this.y <= bottomY) // ball Y is >= paddle top Y and <= paddle bottom Y
             ) {
                 this.vx = -this.vx;
+                // Sound Trigger
                 this.ping.play();
             }
         } else {
@@ -56,6 +55,7 @@ export default class Ball {
                 (this.y >= topY && this.y <= bottomY) // ball Y is >= paddle top Y or <= paddle bottom
             ) {
                 this.vx = -this.vx;
+                // Sound Trigger
                 this.ping.play();
             }
         }
@@ -81,9 +81,10 @@ export default class Ball {
 
 
     goal(player) {
+        // Score increment
         player.score++;
-        this.reset();
         // resets ball on goal
+        this.reset();
     }
 
     render(svg, player1, player2) {
@@ -120,9 +121,6 @@ export default class Ball {
             this.goal(player2);
             this.direction = -1;
         }
-        // left goal variable
-        // right goal variable
-        // a conditional to check if left or right goal 
 
     }
 }

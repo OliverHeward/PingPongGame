@@ -18,9 +18,8 @@ export default class Game {
 
         this.board = new Board(this.width, this.height);
         this.ball = new Ball(8, this.width, this.height);
-        this.score1 = new Score(190, 40, 30);
-        this.score2 = new Score(300, 40, 30);
-
+        this.score1 = new Score(this.width/2 - 50, 30, 30);
+        this.score2 = new Score(this.width/2 + 25, 30, 30);
         this.paddleWidth = 8;
         this.paddleHeight = 56;
         this.boardGap = 10;
@@ -54,7 +53,7 @@ export default class Game {
 
         // Event listener for keydown detection on 'Spacebar';
         document.addEventListener('keydown', event => {
-            switch(event.key) {
+            switch (event.key) {
                 case KEYS.spaceBar:
                     this.pause = !this.pause;
                     break;
@@ -78,7 +77,7 @@ export default class Game {
     }
 
     render() {
-        if(this.pause) {
+        if (this.pause) {
             return;
         }
 
